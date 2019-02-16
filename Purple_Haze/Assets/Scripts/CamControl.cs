@@ -18,8 +18,8 @@ namespace Harrison
         public float camSpeed;
         public float camBoostSpeed;
         
-        // Bool so speed boost isnt applied multiple times
-        private bool boostActive = false;
+        // Bool so speed boost isn't applied multiple times
+        private bool boostActive;
 
         // X and Y axis sensitivity/camera clamp angle values
         public float sensitivityX, sensitivityY, clampAngle;

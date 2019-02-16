@@ -2,61 +2,104 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Harrison
+{
+    
+    
 public class TimeControler : MonoBehaviour {
 
-    //List of all animators
-    public Animator[] AnimateList = new Animator[0];
-
-    //Bool discribing driecton of animation. True = forwards, False = backwards.
-    public bool direction = true;
-
-    //Bool for toggling pause animation on and off.
-    public bool pause = false;
-
-
-    // Use this for initialization
-    void Start () 
-    {
-        //gets all animators in scene to be modded
-      AnimateList =  FindObjectsOfType<Animator>();
-	}
+    //Bool describing direction of animation. True = forwards, False = backwards.
+    public static bool timeDirection = true;
 	
-	// Update is called once per frame
+    // Events for animators to subscribe to
+    public delegate void AlterTime();
+    public static event AlterTime OnTimeRewind;
+    public static event AlterTime OnTimeStop;
+    public static event AlterTime OnTimePlay;
+
+    // strings for input detection
+    public string playInput, rewindInput, pauseInput;
+    
+    // input values bound to their corresponding axis
+    private float playInputValue { get { return Input.GetAxis(playInput); } }
+    private float rewindInputValue { get { return Input.GetAxis(rewindInput); } }
+    private float pauseInputValue { get { return Input.GetAxis(pauseInput); } }
+    
+    // bools to prevent multiple inputs
+    private bool isPlaying, isRewinding, isPaused;
+    
+    private void Awake()
+    {
+        OnTimeRewind += ToggleDirection;
+        OnTimePlay += ToggleDirection;
+    }
+
+    // Update is called once per frame
 	void Update () 
     {
-        //RECODE: This should all be reoginized into a event system so as not to have ot get a list of all the animators.
-        if (Input.GetKeyDown(KeyCode.Q))
+        
+        if (rewindInputValue > 0 && !isRewinding)
         {
-            if (direction == true)
+            // Preventing multiple inputs
+            isRewinding = true;
+            // Run appropriate event based on time direction
+            if (timeDirection == true)
             {
-                Rewind();
-                direction = !direction;
+                if (OnTimeRewind != null) OnTimeRewind();
             }
             else
             {
-                Stop();
+                if (OnTimeStop != null) OnTimeStop();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        // resetting safety bool
+        if (rewindInputValue <= 0) isRewinding = false; 
+
+        if (playInputValue > 0 && !isPlaying)
         {
-            if (direction == false)
+            // Preventing multiple inputs
+            isPlaying = true;
+            // Run appropriate event based on time direction
+            if (timeDirection == false)
             {
-                Play();
-                direction = !direction;
+                if (OnTimePlay != null) OnTimePlay();
             }
             else 
             {
-                Stop();
+                if (OnTimeStop != null) OnTimeStop();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // resetting safety bool
+        if (playInputValue <= 0) isPlaying = false; 
+        
+        if (pauseInputValue > 0 && !isPaused)
         {
-            Stop();
+            // Preventing multiple inputs
+            isPaused = true;
+            // Run stop event
+            if (OnTimeStop != null) OnTimeStop();
         }
+        
+        // resetting safety bool
+        if (pauseInputValue <= 0) isPaused = false; 
     }
 
+	// Run on Play + Rewind events to have an accurate indicator of current time flow
+    private void ToggleDirection()
+    {
+        timeDirection = !timeDirection;
+    }
+
+    // removing events in case of destruction
+    private void OnDestroy()
+    {
+        OnTimeRewind -= ToggleDirection;
+        OnTimePlay -= ToggleDirection;
+    }
+    
+    /* // OLD CODE: Replaced with event system linking with ClueController.cs
     void Play()
     {
         foreach (Animator x in AnimateList)
@@ -96,6 +139,9 @@ public class TimeControler : MonoBehaviour {
             pause = !pause;
         }
     }
-
+*/
 
 }
+
+}
+
