@@ -76,7 +76,7 @@
     <Compile Include="Assets\Scripts\UI Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\ParticalClamp.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Player.cs" />
-    <Compile Include="Assets\UI_PauseMenu_Venus\PauseMenu.cs" />
+    <Compile Include="Assets\UI_PauseMenu_Venus\RawAssets\PauseMenu.cs" />
     <Compile Include="Assets\unity-ui-extensions\Scripts\Effects\UIParticleSystem.cs" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle AddSmooth.shader" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Premultiply Blend.shader" />
