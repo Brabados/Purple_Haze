@@ -78,7 +78,10 @@ public class ParticalClamp : MonoBehaviour {
     void Begin()
     {
         running = true;
-        MyParticalSystem.Play(true);
+        if (this.enabled == true)
+        {
+            MyParticalSystem.Play(true);
+        }
         var Main = MyParticalSystem.main;
         Main.startColor = ParticalsPrefab.GetComponent<ParticleSystem>().main.startColor;
     }
