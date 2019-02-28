@@ -98,6 +98,18 @@ public class TimeControler : MonoBehaviour {
         OnTimeRewind -= ToggleDirection;
         OnTimePlay -= ToggleDirection;
     }
+
+        public void AniPlay()
+        {
+            if (OnTimePlay != null)
+            OnTimePlay();
+        }
+
+        public void AniStop()
+        {
+            if (OnTimeStop != null)
+                OnTimeStop();
+        }
     
     /* // OLD CODE: Replaced with event system linking with ClueController.cs
     void Play()
