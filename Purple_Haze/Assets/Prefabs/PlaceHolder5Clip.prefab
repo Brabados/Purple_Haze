@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Question: Attack Lie
-  ToPlay: {fileID: 32900000, guid: 58597e57611395649860cf44ac6a1368, type: 3}
+  ToPlay: {fileID: 32900000, guid: 7c2427e24067a5f429699e39405524e5, type: 3}
   beenPlayed: 0
   ToActivate: []
   ToDisable: []
