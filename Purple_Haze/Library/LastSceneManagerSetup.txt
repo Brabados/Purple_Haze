@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Venus_Testing/Structure_Boundaries/SCE_Boundaries_Test.unity
+- path: Assets/Scenes/SampleScene.unity
   isLoaded: 1
   isActive: 1
