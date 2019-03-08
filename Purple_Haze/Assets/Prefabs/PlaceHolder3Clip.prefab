@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Question: Head Wound
-  ToPlay: {fileID: 32900000, guid: cb831cf47e9760c4d8bbfbb1296c8d54, type: 3}
+  ToPlay: {fileID: 32900000, guid: 44a9813dfe174cd4ea099568747faf3c, type: 3}
   beenPlayed: 0
   ToActivate: []
   ToDisable: []

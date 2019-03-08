@@ -67,6 +67,8 @@ public class ParticalClamp : MonoBehaviour {
         {
             MyParticalSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
+        MyPartical_Object.GetComponent<RectTransform>().transform.position = new Vector3(MyPartical_Object.GetComponent<RectTransform>().transform.position.x, MyPartical_Object.GetComponent<RectTransform>().transform.position.y, 0);
+    
     }
 
     void Stop()

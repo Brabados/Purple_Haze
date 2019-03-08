@@ -21,7 +21,7 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hitForward, 5, 1, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hitForward, 15, 1, QueryTriggerInteraction.Ignore))
         {
             if (hitForward.transform != transform)
             {
@@ -38,7 +38,7 @@ public class Interaction : MonoBehaviour
         }
         if (InTrigger == true)
         {
-            if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hitForward, 400, 9, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hitForward, 40000, 9, QueryTriggerInteraction.Ignore))
             {
                 print("hit");
                 if (hitForward.transform != transform)
