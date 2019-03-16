@@ -30,6 +30,8 @@ public class TriggerList : MonoBehaviour {
             if(A == n)
             {
                 NoAdd = true;
+                A.GetComponent<ParticalClamp>().Toggle();
+                ToggledObjects.Remove(n);
             }
         }
      
@@ -50,7 +52,7 @@ public class TriggerList : MonoBehaviour {
             }
         }
 
-        if(compare == ObjectsToGetClue.Count)
+        if(compare == ObjectsToGetClue.Count && ObjectsToGetClue.Count == ToggledObjects.Count)
         {
             clue.Activate();
         }

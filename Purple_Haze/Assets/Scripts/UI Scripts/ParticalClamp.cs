@@ -13,6 +13,7 @@ public class ParticalClamp : MonoBehaviour {
     public MeshRenderer MyMesh;
     public RectTransform rectTrans;
     bool running;
+    public bool selected = false;
 
     public GameObject Lac;
 
@@ -75,6 +76,7 @@ public class ParticalClamp : MonoBehaviour {
     {
         running = false;
         MyParticalSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        selected = false;
     }
 
     void Begin()
@@ -90,8 +92,18 @@ public class ParticalClamp : MonoBehaviour {
 
     public void Toggle()
     {
-        var Main = MyParticalSystem.main;
-        Main.startColor = new Color(0,0,255);
+        if (selected == false)
+        {
+            var Main = MyParticalSystem.main;
+            Main.startColor = new Color(0, 0, 255);
+            selected = true;
+        }
+        else
+        {
+            var Main = MyParticalSystem.main;
+            Main.startColor = new Color(255, 0, 0);
+            selected = false;
+        }
     }
     
 

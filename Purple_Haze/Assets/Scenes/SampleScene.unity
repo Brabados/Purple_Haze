@@ -884,6 +884,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2612704421448078892, guid: f84acbe26143a2947a622468ee1f7de4,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612704421448078892, guid: f84acbe26143a2947a622468ee1f7de4,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612704421448078892, guid: f84acbe26143a2947a622468ee1f7de4,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f84acbe26143a2947a622468ee1f7de4, type: 3}
 --- !u!1 &779102458 stripped
@@ -981,6 +996,7 @@ MonoBehaviour:
   MyParticalSystem: {fileID: 0}
   MyMesh: {fileID: 0}
   rectTrans: {fileID: 0}
+  selected: 0
   Lac: {fileID: 869996297}
   cube: {fileID: 869996298}
   cam: {fileID: 1174134279}
@@ -1442,6 +1458,7 @@ MonoBehaviour:
   MyParticalSystem: {fileID: 0}
   MyMesh: {fileID: 0}
   rectTrans: {fileID: 0}
+  selected: 0
   Lac: {fileID: 779102458}
   cube: {fileID: 779102459}
   cam: {fileID: 1174134279}
