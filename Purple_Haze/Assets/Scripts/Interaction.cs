@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-
+    //Refrence to the camera
     public Camera Cam;
 
+    //Ray to be used to find Objects under the crosshair
     private RaycastHit hitForward;
 
+    //bool to define when inside a clue trigger box
     public bool InTrigger = false;
+
+
 
     void Start()
     {
         GlobleEvents.TriggerEnter += Enter;
         GlobleEvents.TriggerExit += Exit;
-
     }
 
     // Update is called once per frame
