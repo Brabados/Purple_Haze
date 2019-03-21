@@ -50,7 +50,7 @@ public class ParticalClamp : MonoBehaviour {
 
                 float distace = 1 - Mathf.Clamp(Vector3.Distance(cam.transform.position, cube.position) / 100, 0, 1);
 
-                rectTrans.localScale = Vector3.Lerp(new Vector3(2, 2, 2), new Vector3(7, 7, 7), distace);
+                rectTrans.localScale = Vector3.Lerp(new Vector3(1.1f, 1.1f, 1.1f), new Vector3(7, 7, 7), distace);
 
 
 
