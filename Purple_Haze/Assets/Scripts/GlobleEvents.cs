@@ -23,18 +23,18 @@ public class GlobleEvents{
     //Function to be called to call event 
     public static void OnTriggerEnter_Func()
     {
-        TriggerEnter();
+        if (TriggerEnter != null) TriggerEnter();
     }
 
     //Function to be called to call event 
     public static void OnTriggerExit_Func()
     {
-        TriggerExit();
+        if (TriggerExit != null) TriggerExit();
     }
 
     //Function to be called to call event 
     public static void ActiveToggle(GameObject A)
     {
-        Toggle(A);
+        if (Toggle != null) Toggle(A);
     }
 }

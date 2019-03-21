@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TriggerList : MonoBehaviour {
@@ -25,7 +26,7 @@ public class TriggerList : MonoBehaviour {
 
         bool NoAdd = false;
 
-        foreach(GameObject n in ToggledObjects)
+        foreach(GameObject n in ToggledObjects.ToList())
         {
             if(A == n)
             {
