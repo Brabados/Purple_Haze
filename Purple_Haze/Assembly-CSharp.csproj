@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\HarryTest\VideoClip.cs" />
+    <Compile Include="Assets\HarryTest\VideoClipManager.cs" />
     <Compile Include="Assets\Marcos Schultz\MSAdvancedCameraController\Scripts\MSCameraController.cs" />
     <Compile Include="Assets\Scripts\AnimateScripts\TimeControler.cs" />
     <Compile Include="Assets\Scripts\AnimationEventController.cs" />
@@ -267,7 +269,8 @@
     <Compile Include="Assets\unity-ui-extensions\Scripts\VR Extensions\VRCursor.cs" />
     <Compile Include="Assets\unity-ui-extensions\Scripts\VR Extensions\VRInputModule.cs" />
     <Compile Include="Assets\Venus_Testing\Structure_Boundaries\Flying.cs" />
-    <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\PauseMenu.cs" />
+    <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\OptionsMenu.cs" />
+    <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\PauseMenu.cs" />
     <None Include="Assets\unity-ui-extensions\Resources\Shaders\UI Particle Blend.shader" />
     <None Include="Assets\unity-ui-extensions\Resources\Shaders\UIAdditive.shader" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle AddSmooth.shader" />
