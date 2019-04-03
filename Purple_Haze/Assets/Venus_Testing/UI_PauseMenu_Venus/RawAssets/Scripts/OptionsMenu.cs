@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+    public event Action GoBack;
+
     private Canvas OwnCanvas;
 
     // Start is called before the first frame update
@@ -32,5 +37,17 @@ public class OptionsMenu : MonoBehaviour
                 OwnCanvas.enabled = false;
                 break;
         }
+    }
+
+    public void Back()
+    {
+        OwnCanvas.enabled = false;
+        if (GoBack != null)
+            GoBack();
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("MixerVolume", volume);
     }
 }

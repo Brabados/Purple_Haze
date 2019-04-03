@@ -782,13 +782,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 1349963614}
   m_HandleRect: {fileID: 676324131}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: -32
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2635068385965901029}
+        m_MethodName: SetVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1001 &2612704421391909079
@@ -806,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 2612704421448078894, guid: f84acbe26143a2947a622468ee1f7de4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2612704421448078890, guid: f84acbe26143a2947a622468ee1f7de4,
         type: 3}
@@ -1358,6 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc34f4aa7fcad7e448c2a22889342142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: bbc494b708db64747971010ffcbee392, type: 2}
 --- !u!114 &2635068385965901030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,8 +1725,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Save
+      - m_Target: {fileID: 2635068385965901029}
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
