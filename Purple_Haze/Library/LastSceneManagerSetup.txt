@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Venus_Testing/UI_PauseMenu_Venus/RawAssets/SCE_PauseMenuTest.unity
+- path: Assets/Scenes/SampleScene.unity
   isLoaded: 1
   isActive: 1
