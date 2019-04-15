@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 namespace Harrison
 {
@@ -12,12 +15,63 @@ namespace Harrison
         public ManagerState state = ManagerState.normal;
         
         public List<VideoClip> clips;
-    
+        //List of Clues, used for spawning buttons
+        public List<ClipStruct> FoundCluesLisCS = new List<ClipStruct>();
+        
+        public Player MediaPlayer;
+        public ScrollRect Can;
+        
+        //Used to hold the insantiated button for use
+        public Button placeholder;
+        //Prefab used in button creation
+        public Button BaseButt;
+        
         private void Awake()
         {
             VCM = this;
+            
+            //Gets the meidea player and the canvas obj 
+            MediaPlayer = GetComponent<Player>();
+            Can = FindObjectOfType<ScrollRect>();
+            
+            //Adds the create new button function to a global event to be called when cluesa are found 
+            GlobleEvents.OnClueActivate += ADD;
+        }
+        
+        public void ADD(ClipStruct adder)
+        {
+            //Constructs button layout from found clipstructs. With the addition of only adding it if the clue hasn't already been found
+            if (!FoundCluesLisCS.Contains(adder))
+            {
+                FoundCluesLisCS.Add(adder);
+                placeholder = Instantiate(BaseButt);
+                placeholder.transform.parent = Can.viewport.GetChild(0).transform;
+                
+                VideoClip v = placeholder.gameObject.AddComponent<VideoClip>();
+                v.myClip = adder;
+                
+                placeholder.GetComponent<RectTransform>().localPosition = new Vector3(90, ((FoundCluesLisCS.Count - 1) * -40) - 20, 0);
+                placeholder.GetComponentInChildren<Text>().text = adder.Question;
+                
+                placeholder.onClick.AddListener(delegate { v.ToggleButton(); Can.gameObject.SetActive(false); });
+            }
+      
         }
 
+        public void test(ClipStruct MyClip)
+        {
+            //Hands the clip to the player to run in a coroutine
+            StartCoroutine(MediaPlayer.playVideo(MyClip));
+            MediaPlayer.EndPlay += Redraw;
+        }
+        
+        public void Redraw()
+        {
+            //resets the Investigation canvas
+            Can.gameObject.SetActive(true);
+            MediaPlayer.EndPlay -= Redraw;
+        }
+        
         public void FindVideo()
         {
             switch (state)
@@ -25,10 +79,7 @@ namespace Harrison
                 case ManagerState.normal:
 
                     // Play Video
-
-                    string toPlay = clips[0].fileReference;
-                    // Search For File Reference 
-                    RunVideo(toPlay);
+                    test(clips[0].myClip);
                     
                     break;
                 
@@ -39,22 +90,13 @@ namespace Harrison
 
                     for (int i = 0; i < clips.Count - 1; i++)
                     {
-                        toPlayList.Add(clips[i].id);
+                        toPlayList.Add(clips[i].combineId);
                     }
 
                     RunVideo(toPlayList);
                     
                     break;
             }
-        }
-
-        /// <summary>
-        /// To run a single video just input the file reference
-        /// </summary>
-        /// <param name="s"></param>
-        private void RunVideo(string s)
-        {
-            // Find file matching string 
         }
         
         /// <summary>
