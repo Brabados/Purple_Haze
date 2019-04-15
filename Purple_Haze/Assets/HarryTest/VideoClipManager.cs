@@ -30,12 +30,14 @@ namespace Harrison
         {
             VCM = this;
             
-            //Gets the meidea player and the canvas obj 
+            // Gets the media player and the canvas obj 
             MediaPlayer = GetComponent<Player>();
             Can = FindObjectOfType<ScrollRect>();
             
-            //Adds the create new button function to a global event to be called when cluesa are found 
+            // Adds the create new button function to a global event to be called when cluesa are found 
             GlobleEvents.OnClueActivate += ADD;
+
+            MediaPlayer.EndPlay += PurgeList;
         }
         
         public void ADD(ClipStruct adder)
@@ -151,7 +153,13 @@ namespace Harrison
                     break;
             }
         }
-        
+
+        private void OnDestroy()
+        {
+            GlobleEvents.OnClueActivate -= ADD;
+
+            MediaPlayer.EndPlay -= PurgeList;
+        }
     }
 }
 
