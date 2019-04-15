@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Harrison;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
+using VideoClip = UnityEngine.Video.VideoClip;
 
 public class ClipStruct: MonoBehaviour
 {
@@ -22,5 +23,9 @@ public class ClipStruct: MonoBehaviour
     public List<GameObject> ToDisable = new List<GameObject>();
 
 
+    private void Start()
+    {
+        VideoClipManager.VCM.FoundCluesLisCS.Add(this);
+    }
 }
 

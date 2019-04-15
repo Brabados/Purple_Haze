@@ -5,8 +5,10 @@ namespace Harrison
 {
     public class VideoClip : MonoBehaviour
     {
-        public int id;
-        public string fileReference;
+        public ClipStruct myClip;
+        
+        public int combineId;
+        public UnityEngine.Video.VideoClip videoReference;
         [HideInInspector] public Button myButton;
         public enum ButtonState { selected, combining, deselected }
 

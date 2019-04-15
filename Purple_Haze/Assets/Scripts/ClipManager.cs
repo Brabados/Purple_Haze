@@ -69,7 +69,6 @@ public class ClipManager : MonoBehaviour {
         MediaPlayer.EndPlay -= Redraw;
     }
 
-
     //Function to call when adding a new button to the investigation canvas
     public void ADD(ClipStruct adder)
     {
