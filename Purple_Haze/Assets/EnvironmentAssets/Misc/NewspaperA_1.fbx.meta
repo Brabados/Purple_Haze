@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 0fee9553918206847ae1f55990388989
+guid: 5d25d2c58b373724b8591ebcdce3cf6c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: blinn1SG1
+    2100000: NEWS_blinn1SG2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: NEWS_pPlane4
+    4300000: NEWS_pPlane9
   externalObjects: {}
   materials:
     importMaterials: 1
