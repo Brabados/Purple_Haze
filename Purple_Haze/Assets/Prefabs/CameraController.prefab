@@ -237,7 +237,7 @@ MonoBehaviour:
   camSpeed: 20
   camBoostSpeed: 2.5
   camMaxSpeed: 20
-  camBreakSpeed: 0.04
+  camBreakSpeed: 0.1
   sensitivityX: 10
   sensitivityY: 10
   clampAngle: 90
