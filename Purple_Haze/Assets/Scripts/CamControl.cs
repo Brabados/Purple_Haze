@@ -26,6 +26,8 @@ namespace Harrison
         // Bool so speed boost isn't applied multiple times
         private bool boostActive;
 
+        public bool frozen = false;
+
         // X and Y axis sensitivity/camera clamp angle values
         public float sensitivityX, sensitivityY, clampAngle;
         
@@ -62,6 +64,13 @@ namespace Harrison
         {    
             // if game paused, take no input
             if (Time.timeScale <= 0) return;
+            
+            // if frozen stop movement
+            if (frozen)
+            {
+                camBody.velocity = Vector3.zero;
+                return;
+            }
             
             // setting camera's new rotation to be equal to the mouse input * our sensitivity 
             camRotation.x += mouseXValue * sensitivityX * 15 * Time.deltaTime;

@@ -181,7 +181,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4681717105755548}
-  - component: {fileID: 114841047435744438}
   - component: {fileID: 1285112538}
   - component: {fileID: 4860576620343657699}
   - component: {fileID: 8883798131803241164}
@@ -207,20 +206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114841047435744438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1851629585476720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d6f29ae72e921242a0a184e221f1225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cam: {fileID: 20123356454884424}
-  InTrigger: 0
 --- !u!114 &1285112538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +223,7 @@ MonoBehaviour:
   camBoostSpeed: 2.5
   camMaxSpeed: 20
   camBreakSpeed: 0.1
+  frozen: 0
   sensitivityX: 10
   sensitivityY: 10
   clampAngle: 90
@@ -261,7 +247,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &8883798131803241164
 SphereCollider:

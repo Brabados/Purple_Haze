@@ -28,6 +28,7 @@ using UnityEngine;
             Interview.enabled = false;
             GUI.enabled = true;
             PauseMenu.enabled = false;
+            Cursor.visible = true;
         }
 
         // Update is called once per frame
@@ -43,7 +44,7 @@ using UnityEngine;
                     GUIToggle = false;
                     GUI.enabled = false;
                     Interview.enabled = true;
-                    View.GetComponent<Harrison.CamControl>().enabled = false;
+                    View.GetComponent<Harrison.CamControl>().frozen = true;
                     Cursor.visible = true;
                     TimeController.GetComponent<Harrison.TimeControler>().AniStop();
                 }
@@ -54,7 +55,7 @@ using UnityEngine;
                     GUIToggle = true;
                     GUI.enabled = true;
                     Interview.enabled = false;
-                    View.GetComponent<Harrison.CamControl>().enabled = true;
+                    View.GetComponent<Harrison.CamControl>().frozen = false;
                     Cursor.visible = false;
                     TimeController.GetComponent<Harrison.TimeControler>().AniPlay();
                 }
