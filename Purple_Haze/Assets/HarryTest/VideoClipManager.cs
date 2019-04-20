@@ -64,14 +64,16 @@ namespace Harrison
         public void test(ClipStruct MyClip)
         {
             //Hands the clip to the player to run in a coroutine
-            StartCoroutine(MediaPlayer.playVideo(MyClip));
             MediaPlayer.EndPlay += Redraw;
+            StartCoroutine(MediaPlayer.playVideo(MyClip));
         }
         
         public void Redraw()
         {
             //resets the Investigation canvas
+            Can.enabled = true;
             Can.gameObject.SetActive(true);
+            GetComponent<RawImage>().enabled = false;    
             MediaPlayer.EndPlay -= Redraw;
         }
         
@@ -129,12 +131,15 @@ namespace Harrison
         
         public void PurgeList()
         {
+            int i = 0;
             foreach (VideoClip v in clips)
             {
-                clips[0].myState = VideoClip.ButtonState.deselected;
-                clips[0].CheckColour();
-                clips.Remove(clips[0]);
+                clips[i].myState = VideoClip.ButtonState.deselected;
+                clips[i].CheckColour();
+                i++;
             }
+            
+            clips.Clear();
         }
 
         public void SwapState()
@@ -158,7 +163,6 @@ namespace Harrison
         private void OnDestroy()
         {
             GlobleEvents.OnClueActivate -= ADD;
-
             MediaPlayer.EndPlay -= PurgeList;
         }
     }

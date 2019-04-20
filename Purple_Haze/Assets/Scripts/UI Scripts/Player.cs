@@ -122,6 +122,8 @@ public class Player : MonoBehaviour {
             _Player.Stop();
             if (EndPlay != null)
             {
+                // Add scroll view re-enable and raw image disable
+                Debug.Log("Running end event");
                 EndPlay();
             }
              //if the clip hasn't been watched before 
