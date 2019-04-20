@@ -691,8 +691,8 @@ GameObject:
   - component: {fileID: 224193346323386030}
   - component: {fileID: 222962121103133540}
   - component: {fileID: 114998303396901254}
-  - component: {fileID: 114206578084333674}
   - component: {fileID: 114261023885938944}
+  - component: {fileID: 5111660164941403921}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -754,23 +754,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114206578084333674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822744603559352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c426d9f7527d53489928b522685eecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FoundCluesLisCS: []
-  MediaPlayer: {fileID: 0}
-  BaseButt: {fileID: 114503720492589194, guid: 92703a00b3cddfd4a93216068a553a50, type: 3}
-  placeholder: {fileID: 0}
-  Can: {fileID: 0}
 --- !u!114 &114261023885938944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +768,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Image: {fileID: 114998303396901254}
   ToPlay: {fileID: 0}
+--- !u!114 &5111660164941403921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822744603559352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cbc2f785aa4c94e8ea323dfb9e49fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 1
+  clips: []
+  FoundCluesLisCS: []
+  MediaPlayer: {fileID: 0}
+  Can: {fileID: 0}
+  placeholder: {fileID: 0}
+  BaseButt: {fileID: 114503720492589194, guid: 92703a00b3cddfd4a93216068a553a50, type: 3}
 --- !u!1 &1833275015709612
 GameObject:
   m_ObjectHideFlags: 0

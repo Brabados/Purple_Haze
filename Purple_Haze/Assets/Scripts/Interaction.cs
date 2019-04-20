@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     //Refrence to the camera
-    public Camera Cam;
+    [HideInInspector] public Camera Cam;
 
     //Ray to be used to find Objects under the crosshair
     private RaycastHit hitForward;
@@ -13,7 +13,10 @@ public class Interaction : MonoBehaviour
     //bool to define when inside a clue trigger box
     public bool InTrigger = false;
 
-
+    private void Awake()
+    {
+        Cam = GetComponent<Camera>();
+    }
 
     void Start()
     {
@@ -30,9 +33,10 @@ public class Interaction : MonoBehaviour
             {
                 if (hitForward.transform.CompareTag("Clue"))
                 {
-                    Clue InView = hitForward.transform.parent.GetComponent<Clue>();
+                    Clue InView = hitForward.transform.parent.GetComponentInChildren<Clue>();
                     if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                     {
+                        Debug.Log("Attempting Activation");
                         InView.Activate();
                     }
                 }
@@ -43,7 +47,6 @@ public class Interaction : MonoBehaviour
         {
             if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hitForward, 40000, 9, QueryTriggerInteraction.Ignore))
             {
-                print("hit");
                 if (hitForward.transform != transform)
                 {
                     if (hitForward.transform.CompareTag("Clue"))

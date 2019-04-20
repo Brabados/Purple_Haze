@@ -45,6 +45,7 @@ namespace Harrison
             //Constructs button layout from found clipstructs. With the addition of only adding it if the clue hasn't already been found
             if (!FoundCluesLisCS.Contains(adder))
             {
+                Debug.Log("ran ADD");
                 FoundCluesLisCS.Add(adder);
                 placeholder = Instantiate(BaseButt);
                 placeholder.transform.parent = Can.viewport.GetChild(0).transform;
