@@ -61,7 +61,7 @@ namespace Harrison
       
         }
 
-        public void test(ClipStruct MyClip)
+        public void Play(ClipStruct MyClip)
         {
             //Hands the clip to the player to run in a coroutine
             MediaPlayer.EndPlay += Redraw;
@@ -84,7 +84,7 @@ namespace Harrison
                 case ManagerState.normal:
 
                     // Play Video
-                    test(clips[0].myClip);
+                    Play(clips[0].myClip);
                     
                     break;
                 
@@ -98,7 +98,7 @@ namespace Harrison
                         toPlayList.Add(clips[i].combineId);
                     }
 
-                    RunVideo(toPlayList);
+                    RunComboVideo(toPlayList);
                     
                     break;
             }
@@ -108,7 +108,7 @@ namespace Harrison
         /// To run a combo video, input a sorted list of id's to search for
         /// </summary>
         /// <param name="s"></param>
-        private void RunVideo(List<int> i)
+        private void RunComboVideo(List<int> i)
         {
             // Find file matching combined id list 
             
@@ -132,6 +132,7 @@ namespace Harrison
         public void PurgeList()
         {
             int i = 0;
+            
             foreach (VideoClip v in clips)
             {
                 clips[i].myState = VideoClip.ButtonState.deselected;

@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
         OwnCanvas = GetComponent<Canvas>();
         OwnCanvas.enabled = false;
 
-        FindObjectOfType<OptionsMenu>().GoBack += Pause;
+//        FindObjectOfType<OptionsMenu>().GoBack += Pause;
     }
 
     void Update()
