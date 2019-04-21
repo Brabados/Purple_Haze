@@ -25,10 +25,14 @@ namespace Harrison
         public Button placeholder;
         //Prefab used in button creation
         public Button BaseButt;
+
+        public GameObject combineToggleButton;
+        public GameObject testCombineButton;
         
         private void Awake()
         {
             VCM = this;
+            state = ManagerState.normal;
             
             // Gets the media player and the canvas obj 
             MediaPlayer = GetComponent<Player>();
@@ -56,11 +60,18 @@ namespace Harrison
                 placeholder.GetComponent<RectTransform>().localPosition = new Vector3(90, ((FoundCluesLisCS.Count - 1) * -40) - 20, 0);
                 placeholder.GetComponentInChildren<Text>().text = adder.Question;
                 
-                placeholder.onClick.AddListener(delegate { v.ToggleButton(); Can.gameObject.SetActive(false); });
+                placeholder.onClick.AddListener(delegate { v.ToggleButton(); ToggleCanvas(); });
             }
-      
         }
 
+        public void ToggleCanvas()
+        {
+            if (state == ManagerState.normal)
+            {
+                Can.gameObject.SetActive(false);
+            }
+        }
+        
         public void Play(ClipStruct MyClip)
         {
             //Hands the clip to the player to run in a coroutine
@@ -115,6 +126,7 @@ namespace Harrison
             // search reference file for matching id
             // if found play and PurgeList()
             // if not found PurgeList() and throw message to player
+            // run Can.gameObject.SetActive(false) if found
             
             i.Sort();
             
@@ -131,8 +143,9 @@ namespace Harrison
         
         public void PurgeList()
         {
-            int i = 0;
+            if (clips == null) return;
             
+            int i = 0;
             foreach (VideoClip v in clips)
             {
                 clips[i].myState = VideoClip.ButtonState.deselected;
@@ -150,12 +163,18 @@ namespace Harrison
                 case ManagerState.normal:
                     state = ManagerState.combining;
                     // Hide/Show ui
+                    combineToggleButton.GetComponentInChildren<Text>().text = "Combining";
+                    testCombineButton.SetActive(true);
+                    PurgeList();
                     
                     break;
                 
                 case ManagerState.combining:
                     state = ManagerState.normal;
                     // Hide/Show ui
+                    combineToggleButton.GetComponentInChildren<Text>().text = "Single";
+                    testCombineButton.SetActive(false);
+                    PurgeList();
                     
                     break;
             }

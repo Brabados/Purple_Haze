@@ -14,6 +14,11 @@ namespace Harrison
 
         public ButtonState myState = ButtonState.deselected;
 
+        private void Awake()
+        {
+            myState = ButtonState.deselected;
+        }
+
         private void Start()
         {
             myButton = GetComponent<Button>();
@@ -21,6 +26,8 @@ namespace Harrison
 
         public void ToggleButton()
         {
+            Debug.Log(VideoClipManager.VCM.state);
+            
             switch (VideoClipManager.VCM.state)
             {
                 case VideoClipManager.ManagerState.normal:
@@ -28,7 +35,6 @@ namespace Harrison
                     if (myState == ButtonState.deselected)
                     {
                         AddToList(ButtonState.selected);   
-                        CheckColour();
                         VideoClipManager.VCM.FindVideo();
                     } 
                     
@@ -39,13 +45,11 @@ namespace Harrison
                     if (myState == ButtonState.deselected)
                     {
                         AddToList(ButtonState.combining);   
-                        CheckColour();
                     }
 
                     if (myState == ButtonState.combining)
                     {
                         RemoveFromList(ButtonState.deselected);
-                        CheckColour();
                     }
                     
                     break;
@@ -54,14 +58,20 @@ namespace Harrison
         
         public void AddToList(ButtonState b)
         {
+            if (VideoClipManager.VCM.clips.Contains(this)) return;
+            
             VideoClipManager.VCM.clips.Insert(0, this);
             myState = b;
+            CheckColour();
         }
 
         public void RemoveFromList(ButtonState b)
         {
+            if (!VideoClipManager.VCM.clips.Contains(this)) return;
+            
             VideoClipManager.VCM.clips.Remove(this);
             myState = b;
+            CheckColour();
         }
         
         public void CheckColour()
