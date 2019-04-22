@@ -21,7 +21,9 @@ public class ClipStruct: MonoBehaviour
 
     //List of objects to disable apon viewing
     public List<GameObject> ToDisable = new List<GameObject>();
-
+    
+    // For combination videos - Any unique number
+    public int combineId;
 
     private void Start()
     {

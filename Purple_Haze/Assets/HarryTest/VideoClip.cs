@@ -7,8 +7,6 @@ namespace Harrison
     {
         public ClipStruct myClip;
         
-        public int combineId;
-        public UnityEngine.Video.VideoClip videoReference;
         [HideInInspector] public Button myButton;
         public enum ButtonState { selected, combining, deselected }
 
@@ -45,9 +43,8 @@ namespace Harrison
                     if (myState == ButtonState.deselected)
                     {
                         AddToList(ButtonState.combining);   
-                    }
-
-                    if (myState == ButtonState.combining)
+                    } 
+                    else if (myState == ButtonState.combining)
                     {
                         RemoveFromList(ButtonState.deselected);
                     }

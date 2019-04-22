@@ -85,14 +85,14 @@ public class Player : MonoBehaviour {
             WaitForSeconds waitTime = new WaitForSeconds(1);
             while (!_Player.isPrepared)
             {
-                Debug.Log("Preparing Video");
+          //      Debug.Log("Preparing Video");
                 //Prepare/Wait for 5 sceonds only
                 yield return waitTime;
                 //Break out of the while loop after 5 seconds wait
                 break;
             }
 
-            Debug.Log("Done Preparing Video");
+        //    Debug.Log("Done Preparing Video");
 
             //Assign the Texture from Video to RawImage to be displayed
             _Image.texture = _Player.texture;
@@ -103,12 +103,12 @@ public class Player : MonoBehaviour {
             //Play Sound
             _ASource.Play();
 
-            Debug.Log("Playing Video");
+  //          Debug.Log("Playing Video");
 
             //Allows for canceling out of a clip while playing
             while (_Player.isPlaying)
             {
-                Debug.LogWarning("Video Time: " + Mathf.FloorToInt((float)_Player.time));
+//                Debug.LogWarning("Video Time: " + Mathf.FloorToInt((float)_Player.time));
                 if (Input.anyKeyDown)
                 {
                     _Player.Stop();
@@ -116,14 +116,14 @@ public class Player : MonoBehaviour {
                 yield return null;
             }
 
-            Debug.Log("Done Playing Video");
+    //        Debug.Log("Done Playing Video");
 
             //Stops playback at end of clip
             _Player.Stop();
             if (EndPlay != null)
             {
                 // Add scroll view re-enable and raw image disable
-                Debug.Log("Running end event");
+      //          Debug.Log("Running end event");
                 EndPlay();
             }
              //if the clip hasn't been watched before 

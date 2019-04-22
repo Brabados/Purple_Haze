@@ -15,6 +15,9 @@ namespace Harrison
         public ManagerState state = ManagerState.normal;
         
         public List<VideoClip> clips;
+        public List<ComboVideo> comboVideos;
+        private List<ComboVideo> usedComboVideos = new List<ComboVideo>();
+        
         //List of Clues, used for spawning buttons
         public List<ClipStruct> FoundCluesLisCS = new List<ClipStruct>();
         
@@ -60,11 +63,11 @@ namespace Harrison
                 placeholder.GetComponent<RectTransform>().localPosition = new Vector3(90, ((FoundCluesLisCS.Count - 1) * -40) - 20, 0);
                 placeholder.GetComponentInChildren<Text>().text = adder.Question;
                 
-                placeholder.onClick.AddListener(delegate { v.ToggleButton(); ToggleCanvas(); });
+                placeholder.onClick.AddListener(delegate { v.ToggleButton(); ToggleCanvasNormal(); });
             }
         }
 
-        public void ToggleCanvas()
+        public void ToggleCanvasNormal()
         {
             if (state == ManagerState.normal)
             {
@@ -104,11 +107,13 @@ namespace Harrison
                     // Check list + play corresponding video if found
                     List<int> toPlayList = new List<int>();
 
-                    for (int i = 0; i < clips.Count - 1; i++)
+                    int i = 0;
+                    foreach (var c in clips)
                     {
-                        toPlayList.Add(clips[i].combineId);
+                        toPlayList.Add(clips[i].myClip.combineId);
+                        i++;
                     }
-
+                    
                     RunComboVideo(toPlayList);
                     
                     break;
@@ -119,25 +124,62 @@ namespace Harrison
         /// To run a combo video, input a sorted list of id's to search for
         /// </summary>
         /// <param name="s"></param>
-        private void RunComboVideo(List<int> i)
+        private void RunComboVideo(List<int> input)
         {
-            // Find file matching combined id list 
+            Debug.Log("finding combo video");
+            input.Sort();
+            ComboVideo toPlay = ScriptableObject.CreateInstance<ComboVideo>();
+            bool found = false;
             
-            // search reference file for matching id
-            // if found play and PurgeList()
-            // if not found PurgeList() and throw message to player
-            // run Can.gameObject.SetActive(false) if found
-            
-            i.Sort();
-            
-            string toPlayString = "";
-
-            for (int j = 0; j < clips.Count - 1; j++)
+            foreach (ComboVideo v in comboVideos)
             {
-                toPlayString = toPlayString + i[j] + ",";
-            }
+                List<int> id = v.ids;
+                id.Sort();
 
-            toPlayString.Remove(toPlayString.Length - 1);
+                string a = "";
+
+                foreach (int i in input)
+                {
+                    a = a + i.ToString() + ",";
+                }
+
+                string b = "";
+
+                foreach (int i in id)
+                {
+                    b = b + i.ToString() + ",";
+                }
+                
+                Debug.Log("Checking: " + a + "     against: " + b);
+                
+                if (a == b)
+                {
+                    toPlay = v;
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found)
+            {
+                Debug.Log("video found");
+                if (!usedComboVideos.Contains(toPlay))
+                {
+                    usedComboVideos.Add(toPlay);
+                    ADD(toPlay.clipStruct);
+                }
+                
+                Can.gameObject.SetActive(false);
+                Play(toPlay.clipStruct);
+            }
+            else
+            {
+                Debug.Log("Could not find video");
+                PurgeList();
+                // THROW ERROR FOR PLAYER
+                // THROW ERROR FOR PLAYER
+                // THROW ERROR FOR PLAYER
+            }
             
         }
         

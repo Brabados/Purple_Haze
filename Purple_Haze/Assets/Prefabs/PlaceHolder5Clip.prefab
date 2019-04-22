@@ -48,3 +48,4 @@ MonoBehaviour:
   beenPlayed: 0
   ToActivate: []
   ToDisable: []
+  combineId: 2
