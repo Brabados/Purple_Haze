@@ -205,7 +205,7 @@ namespace Harrison
                 case ManagerState.normal:
                     state = ManagerState.combining;
                     // Hide/Show ui
-                    combineToggleButton.GetComponentInChildren<Text>().text = "Combining";
+                    combineToggleButton.GetComponentInChildren<Text>().text = "Question";
                     testCombineButton.SetActive(true);
                     PurgeList();
                     
@@ -214,7 +214,7 @@ namespace Harrison
                 case ManagerState.combining:
                     state = ManagerState.normal;
                     // Hide/Show ui
-                    combineToggleButton.GetComponentInChildren<Text>().text = "Single";
+                    combineToggleButton.GetComponentInChildren<Text>().text = "Push Them";
                     testCombineButton.SetActive(false);
                     PurgeList();
                     
