@@ -74,13 +74,14 @@
     <Compile Include="Assets\Scripts\ClueController.cs" />
     <Compile Include="Assets\Scripts\GlobleEvents.cs" />
     <Compile Include="Assets\Scripts\Interaction.cs" />
+    <Compile Include="Assets\Scripts\PlayButton.cs" />
     <Compile Include="Assets\Scripts\Shaders\PostProssesing.cs" />
+    <Compile Include="Assets\Scripts\SlepCam.cs" />
     <Compile Include="Assets\Scripts\TriggerDetect.cs" />
     <Compile Include="Assets\Scripts\TriggerList.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\ParticalClamp.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Player.cs" />
-    <Compile Include="Assets\SlepCam.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\ComboBox\ComboBoxChanged.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\Cooldown\CooldownEffect_Image.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\Cooldown\CooldownEffect_SAUIM.cs" />

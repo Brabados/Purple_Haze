@@ -1,19 +1,37 @@
 ﻿<Properties StartupConfiguration="{65703B84-B837-5DC3-F761-17956D800E79}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AnimationEventController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ClueController.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI Scripts/ParticalClamp.cs" Line="78" Column="14" />
-      <File FileName="Assets/Scripts/Interaction.cs" Line="63" Column="12" />
-      <File FileName="Assets/Scripts/TriggerList.cs" Line="18" Column="3" />
-      <File FileName="Assets/Scripts/Clue.cs" Line="17" Column="12" />
-      <File FileName="Assets/Scripts/AnimateScripts/TimeControler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ClueController.cs" Line="12" Column="6" />
+      <File FileName="Assets/Scripts/ClueController.cs" Line="35" Column="32" />
       <File FileName="Assets/Scripts/GlobleEvents.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/AnimationEventController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SlepCam.cs" Line="35" Column="31" />
+      <File FileName="Assets/Scripts/PlayButton.cs" Line="8" Column="1" />
+      <File FileName="Assets/Venus_Testing/UI_PauseMenu_Venus/RawAssets/Scripts/PauseMenu.cs" Line="84" Column="6" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Purple_Haze" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="ClueController.cs" selected="True" />
+              </Node>
+              <Node name="Venus_Testing" expanded="True">
+                <Node name="UI_PauseMenu_Venus" expanded="True">
+                  <Node name="RawAssets" expanded="True">
+                    <Node name="Scripts" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6c068ad9-9f64-40c4-a842-5d4b08a6085c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

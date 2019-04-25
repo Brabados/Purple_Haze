@@ -23,7 +23,10 @@ public class ClueController : MonoBehaviour {
     private void Start()
     {
         enabler = GetComponent<Clue>();
-        ParticalToggle = GetComponent<ParticalClamp>();
+        if (ParticalToggle == null)
+        {
+            ParticalToggle = GetComponent<ParticalClamp>();
+        }
         myAnimator = GetComponent<Animator>();
     }
 
