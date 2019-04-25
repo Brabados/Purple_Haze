@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{65703B84-B837-5DC3-F761-17956D800E79}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ClueController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AnimationEventController.cs">
     <Files>
       <File FileName="Assets/Scripts/ClueController.cs" Line="35" Column="32" />
       <File FileName="Assets/Scripts/GlobleEvents.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AnimationEventController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AnimationEventController.cs" Line="9" Column="1" />
       <File FileName="Assets/Scripts/SlepCam.cs" Line="35" Column="31" />
       <File FileName="Assets/Scripts/PlayButton.cs" Line="8" Column="1" />
       <File FileName="Assets/Venus_Testing/UI_PauseMenu_Venus/RawAssets/Scripts/PauseMenu.cs" Line="84" Column="6" />
@@ -14,7 +14,7 @@
           <Node name="Purple_Haze" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="ClueController.cs" selected="True" />
+                <Node name="AnimationEventController.cs" selected="True" />
               </Node>
               <Node name="Venus_Testing" expanded="True">
                 <Node name="UI_PauseMenu_Venus" expanded="True">
