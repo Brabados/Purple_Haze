@@ -4,6 +4,7 @@
 
 		_Color ("Color Tint", Color) = (1,1,1,1)
 		_DissolveColor ("Dissolve Color", Color) = (1,1,1,1)
+		_EmissionMult ("Emission Multiplier", Range(0,10)) = 1
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -20,12 +21,14 @@
 
 		CGPROGRAM
 		
-		#pragma surface surf Standard fullforwardshadows
+		// Add shadow forces unity to recalculate the shadow pass according to the surf code
+		#pragma surface surf Standard addshadow
 		#include "UnityCG.cginc"
 
 		sampler2D _MainTex;
 		sampler2D _NoiseMap;
 		float _DissolveThreshold;
+		float _EmissionMult;
 		float _ColorThreshold;
 		fixed4 _Color;
 		fixed4 _DissolveColor;
@@ -44,7 +47,7 @@
 
 			o.Albedo = lerp(c.rgb, _DissolveColor, step(n.r - (_ColorThreshold * _DissolveThreshold) + (0.1 - _DissolveThreshold), _DissolveThreshold));
 			o.Alpha = c.a;
-			o.Emission = lerp(0, _DissolveColor, step(n.r - (_ColorThreshold * _DissolveThreshold) + (0.1 - (0.4 * _DissolveThreshold)), _DissolveThreshold));
+			o.Emission = lerp(0, _DissolveColor * _EmissionMult, step(n.r - (_ColorThreshold * _DissolveThreshold) + (0.1 - (0.4 * _DissolveThreshold)), _DissolveThreshold));
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
 
