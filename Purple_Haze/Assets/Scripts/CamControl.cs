@@ -16,6 +16,8 @@ namespace Harrison
         
         // camera's new rotation
         private Vector2 camRotation;
+
+        public float startRotation;
         
         // camera base speed and speed boost multiplier
         public float camSpeed;
@@ -45,6 +47,7 @@ namespace Harrison
         private void Awake()
         {
             camBody = GetComponent<Rigidbody>();
+            camRotation.x = startRotation;
         }
 
         private void Update()

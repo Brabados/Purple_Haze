@@ -10,6 +10,7 @@ public class SlepCam : MonoBehaviour
     public bool Slepcams = false;
     public bool begin = false;
     public Canvas Can;
+    public Canvas AnyKey;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class SlepCam : MonoBehaviour
         {
             Slepcams = true;
             Can.enabled = true;
+            AnyKey.enabled = false;
         }
         if (Slepcams != false)
         {

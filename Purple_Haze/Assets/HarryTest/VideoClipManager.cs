@@ -60,7 +60,8 @@ namespace Harrison
                 VideoClip v = placeholder.gameObject.AddComponent<VideoClip>();
                 v.myClip = adder;
                 
-                placeholder.GetComponent<RectTransform>().localPosition = new Vector3(90, ((FoundCluesLisCS.Count - 1) * -40) - 20, 0);
+                placeholder.GetComponent<RectTransform>().localPosition = new Vector3(300, ((FoundCluesLisCS.Count - 1) * -90) - 90, 0);
+                Debug.Log(placeholder.GetComponent<RectTransform>().localPosition, placeholder.gameObject);
                 placeholder.GetComponentInChildren<Text>().text = adder.Question;
                 
                 placeholder.onClick.AddListener(delegate { v.ToggleButton(); ToggleCanvasNormal(); });
