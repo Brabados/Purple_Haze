@@ -19,6 +19,7 @@ public class SubtitleManager : MonoBehaviour
     {
         Dialogue = new Queue<string>();
 
+        Debug.Log(Screen.currentResolution);
         //FindObjectOfType<SubtitleTrigger>().SubsOff += EndSubtitles;
         //timer += Time.deltaTime;
     }

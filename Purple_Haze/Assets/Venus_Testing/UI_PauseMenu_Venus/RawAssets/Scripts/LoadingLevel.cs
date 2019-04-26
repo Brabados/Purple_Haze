@@ -9,10 +9,10 @@ public class LoadingLevel : MonoBehaviour
     public Text percentage;
     public Slider bar;
 
-    void Start()
+    /*void Start()
     {
         StartCoroutine(LoadAsynchronously(nextScene));
-    }
+    }*/
 
     public void LevelLoad()
     {

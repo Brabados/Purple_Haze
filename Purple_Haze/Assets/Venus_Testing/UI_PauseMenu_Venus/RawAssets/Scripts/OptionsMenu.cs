@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public static AudioMixer audioMixer;
     public event Action GoBack;
     public event Action<bool> Subs;
 
