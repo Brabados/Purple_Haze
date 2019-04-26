@@ -8,6 +8,7 @@ public class OptionsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public event Action GoBack;
+    public event Action<bool> Subs;
 
     private Canvas OwnCanvas;
 
@@ -49,5 +50,15 @@ public class OptionsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("MixerVolume", volume);
+    }
+
+    public void FullScreenToggle(bool IsFullScr)
+    {
+        Screen.fullScreen = IsFullScr;
+    }
+
+    public void SubtitlesToggle(bool SubsOn)
+    {
+        Subs(SubsOn);
     }
 }
