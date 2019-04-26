@@ -27,7 +27,7 @@ public class ClueController : MonoBehaviour {
         {
             ParticalToggle = GetComponent<ParticalClamp>();
         }
-        myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponentInParent<Animator>();
     }
 
     public void IsClue()

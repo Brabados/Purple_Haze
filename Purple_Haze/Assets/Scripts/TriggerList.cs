@@ -40,7 +40,7 @@ public class TriggerList : MonoBehaviour {
         if (NoAdd == false)
         {
             ToggledObjects.Add(A);
-            A.GetComponent<ParticalClamp>().Toggle();
+            A.GetComponentInParent<ParticalClamp>().Toggle();
             foreach (GameObject n in ToggledObjects)
             {
                 foreach (GameObject j in ObjectsToGetClue)
