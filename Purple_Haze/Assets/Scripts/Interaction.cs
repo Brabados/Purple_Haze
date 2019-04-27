@@ -33,7 +33,7 @@ public class Interaction : MonoBehaviour
             {
                 if (hitForward.transform.CompareTag("Clue"))
                 {
-                    Clue InView = hitForward.transform.parent.GetComponentInChildren<Clue>();
+                    Clue InView = hitForward.transform.parent.GetComponentInParent<Clue>();
                     if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                     {
                         Debug.Log("Attempting Activation");

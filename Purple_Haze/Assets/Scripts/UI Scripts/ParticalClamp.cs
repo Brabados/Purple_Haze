@@ -10,6 +10,7 @@ public class ParticalClamp : MonoBehaviour {
 
     public GameObject MyPartical_Object;
     public ParticleSystem MyParticalSystem;
+    public SkinnedMeshRenderer MySkinMesh;
     public MeshRenderer MyMesh;
     public RectTransform rectTrans;
     bool running;
@@ -28,7 +29,10 @@ public class ParticalClamp : MonoBehaviour {
         cube = Lac.gameObject.transform;
         MyPartical_Object = Instantiate(ParticalsPrefab, UI.transform,true);
         MyParticalSystem = MyPartical_Object.GetComponent<ParticleSystem>();
-        MyMesh = gameObject.GetComponentInChildren<MeshRenderer>();
+        if (MyMesh == null)
+        {
+            MySkinMesh = gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        }
         rectTrans = MyPartical_Object.GetComponent<RectTransform>();
         GlobleEvents.TriggerEnter += Begin;
         GlobleEvents.TriggerExit += Stop;
@@ -53,14 +57,27 @@ public class ParticalClamp : MonoBehaviour {
                 rectTrans.localScale = Vector3.Lerp(new Vector3(1.1f, 1.1f, 1.1f), new Vector3(7, 7, 7), distace);
 
 
-
-                if (MyMesh.isVisible == false)
+                if (MyMesh != null)
                 {
-                    MyParticalSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    if (MyMesh.isVisible == false)
+                    {
+                        MyParticalSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    }
+                    else
+                    {
+                        MyParticalSystem.Play(true);
+                    }
                 }
-                else
+                else if(MySkinMesh != null)
                 {
-                    MyParticalSystem.Play(true);
+                    if (MySkinMesh.isVisible == false)
+                    {
+                        MyParticalSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    }
+                    else
+                    {
+                        MyParticalSystem.Play(true);
+                    }
                 }
             }
         }

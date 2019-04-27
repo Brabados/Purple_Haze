@@ -90,5 +90,16 @@ public class ClueController : MonoBehaviour {
             paused = !paused;
         }
     }
-    
+
+    void Apear ()
+    {
+
+        Cluemod.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    void Disapear()
+    {
+        Cluemod.GetComponent<MeshRenderer>().enabled = false;
+    }
+
 }
