@@ -46,6 +46,9 @@ MonoBehaviour:
   Question: Blue X
   ToPlay: {fileID: 32900000, guid: 15d619ee5856ff94bbb56b112c46e7c1, type: 3}
   beenPlayed: 0
-  ToActivate: []
-  ToDisable: []
+  ToActivate:
+  - {fileID: 0}
+  ToDisable:
+  - {fileID: 0}
+  - {fileID: 0}
   combineId: 1

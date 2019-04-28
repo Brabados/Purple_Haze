@@ -9,7 +9,7 @@
       <File FileName="Assets/Venus_Testing/UI_PauseMenu_Venus/RawAssets/Scripts/PauseMenu.cs" Line="84" Column="6" />
       <File FileName="Assets/Scripts/Shaders/ClueShader.shader" Line="37" Column="24" />
       <File FileName="Assets/HarryTest/DissolveTrigger.cs" Line="148" Column="1" />
-      <File FileName="Assets/Scripts/Tutorial.cs" Line="7" Column="15" />
+      <File FileName="Assets/Scripts/Tutorial.cs" Line="21" Column="44" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
