@@ -272,8 +272,11 @@
     <Compile Include="Assets\unity-ui-extensions\Scripts\VR Extensions\VRCursor.cs" />
     <Compile Include="Assets\unity-ui-extensions\Scripts\VR Extensions\VRInputModule.cs" />
     <Compile Include="Assets\Venus_Testing\Structure_Boundaries\Flying.cs" />
+    <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\LoadingLevel.cs" />
     <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\OptionsMenu.cs" />
     <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\SubtitleManager.cs" />
+    <Compile Include="Assets\Venus_Testing\UI_PauseMenu_Venus\RawAssets\Scripts\Subtitles.cs" />
     <None Include="Assets\unity-ui-extensions\Resources\Shaders\UI Particle Blend.shader" />
     <None Include="Assets\unity-ui-extensions\Resources\Shaders\UIAdditive.shader" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle AddSmooth.shader" />
