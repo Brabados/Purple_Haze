@@ -11,7 +11,9 @@ namespace Harrison
         public enum ButtonState { selected, combining, deselected }
 
         public ButtonState myState = ButtonState.deselected;
-
+        public AnimationTriggers BaseSetUp;
+        public Image Circles;
+        public SpriteHolder Held;
         private void Awake()
         {
             myState = ButtonState.deselected;
@@ -20,6 +22,9 @@ namespace Harrison
         private void Start()
         {
             myButton = GetComponent<Button>();
+            BaseSetUp = myButton.animationTriggers;
+            Circles = GetComponent<Image>();
+            Held = GetComponent<SpriteHolder>();
         }
 
         public void ToggleButton()
@@ -73,31 +78,28 @@ namespace Harrison
         
         public void CheckColour()
         {
-            var colours = myButton.colors;
+            var colours = myButton.animationTriggers;
             
             switch (myState)
             {
+                // When the button is neither selected or clicked
                 case ButtonState.deselected:
-                    
-                    colours.normalColor = Color.white;
-                    colours.highlightedColor = Color.white;
-                    myButton.colors = colours;
+
+                    Circles.sprite = Held.clear;
                     
                     break;
-                
+                // When the button is clicked - and the Inspection screen is not combining
                 case ButtonState.selected:
 
-                    colours.normalColor = Color.green;
-                    colours.highlightedColor = Color.green;
-                    myButton.colors = colours;
+                    Circles.sprite = Held.Holden;
+
                     
                     break;
-                
+                // When the button is click - and the Inspection screen IS combining
                 case ButtonState.combining:
-                    
-                    colours.normalColor = Color.yellow;
-                    colours.highlightedColor = Color.yellow;
-                    myButton.colors = colours;
+
+                    Circles.sprite = Held.Holden;
+
                     
                     break;
             }

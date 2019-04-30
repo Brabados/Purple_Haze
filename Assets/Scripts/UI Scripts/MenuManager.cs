@@ -19,7 +19,13 @@ using UnityEngine;
         public bool PauseToggle;
         public bool GUIToggle;
 
-        void Start()
+    //AudioSouce for audio cues
+    public GameObject cam;
+    public List<AudioSource> Music;
+    public AudioSource GameMusic;
+    public AudioSource InterroMusic;
+
+    void Start()
         {
             //RECODE: Demo set up will be needed to be recoded for main menu intergration
             InterviewToggle = false;
@@ -29,7 +35,14 @@ using UnityEngine;
             GUI.enabled = true;
             PauseMenu.enabled = false;
             Cursor.visible = true;
+        foreach(AudioSource n in cam.GetComponents<AudioSource>())
+        {
+            Music.Add(n);
         }
+        GameMusic = Music[0];
+        InterroMusic = Music[1];
+        InterroMusic.mute = true;
+    }
 
         // Update is called once per frame
         void Update()
@@ -47,6 +60,8 @@ using UnityEngine;
                     View.GetComponent<Harrison.CamControl>().frozen = true;
                     Cursor.visible = true;
                     TimeController.GetComponent<Harrison.TimeControler>().AniStop();
+                GameMusic.mute = true;
+                InterroMusic.mute = false;
                 }
                 //Toggles the 1st person canvas if in interview
                 else if (InterviewToggle)
@@ -58,7 +73,9 @@ using UnityEngine;
                     View.GetComponent<Harrison.CamControl>().frozen = false;
                     Cursor.visible = false;
                     TimeController.GetComponent<Harrison.TimeControler>().AniPlay();
-                }
+                GameMusic.mute = false;
+                InterroMusic.mute = true;
+            }
             }
 
         }
