@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#define NEWSEARCHSYSTEM
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -129,6 +130,25 @@ public class Player : MonoBehaviour {
              //if the clip hasn't been watched before 
         if (toplay.beenPlayed == false)
         {
+            #if NEWSEARCHSYSTEM
+
+            foreach (GameObject g in ActivatedOnClip.ToEnable)
+            {
+                if (g.GetComponent<ActivatedOnClip>().videoId == toplay.combineId)
+                {
+                    g.SetActive(true);
+                }
+            }
+            
+            foreach (GameObject g in ActivatedOnClip.ToDisable)
+            {
+                if (g.GetComponent<ActivatedOnClip>().videoId == toplay.combineId)
+                {
+                    g.SetActive(false);
+                }
+            }
+            
+            #else
             //cycles through all game objects
             foreach (GameObject A in AllObj)
             {
@@ -170,7 +190,9 @@ public class Player : MonoBehaviour {
                     }
                 }
             }
-            //Sets watched to true to avoid retriggers
+            #endif
+            
+            // Sets watched to true to avoid retriggers
             toplay.beenPlayed = true;
         }
     }
