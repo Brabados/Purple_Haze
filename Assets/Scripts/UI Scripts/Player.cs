@@ -1,4 +1,4 @@
-﻿#define NEWSEARCHSYSTEM
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,20 +26,6 @@ public class Player : MonoBehaviour {
     //Event to call on completion of a clip
     public event Action EndPlay;
 
-
-    //List of all game objects
-    private List<GameObject> AllObj = new List<GameObject>();
-
-    // Use this for initialization
-    void Start()
-    {
-        Application.runInBackground = true;
-        _Image.enabled = false;
-        foreach (GameObject n in FindObjectsOfType<GameObject>())
-        {
-            AllObj.Add(n);
-        }
-    }
 
     public IEnumerator playVideo(ClipStruct toplay)
     {
@@ -127,73 +113,44 @@ public class Player : MonoBehaviour {
       //          Debug.Log("Running end event");
                 EndPlay();
             }
-             //if the clip hasn't been watched before 
-        if (toplay.beenPlayed == false)
+        //if the clip hasn't been watched before 
+
+        List<GameObject> JustEnabled = new List<GameObject>();
+        foreach (GameObject g in ActivatedOnClip.ToEnable)
         {
-            #if NEWSEARCHSYSTEM
+            if (g.GetComponent<ActivatedOnClip>().videoId == toplay.combineId)
+            {
+                g.SetActive(true);
+                JustEnabled.Add(g);
+            }
+        }
 
-            foreach (GameObject g in ActivatedOnClip.ToEnable)
+
+
+
+        foreach (GameObject g in ActivatedOnClip.ToDisable)
+        {
+            ActivatedOnClip[] p = g.GetComponents<ActivatedOnClip>();
+            foreach (ActivatedOnClip x in p)
             {
-                if (g.GetComponent<ActivatedOnClip>().videoId == toplay.combineId)
+                if (x.videoId == toplay.combineId)
                 {
-                    g.SetActive(true);
-                }
-            }
-            
-            foreach (GameObject g in ActivatedOnClip.ToDisable)
-            {
-                if (g.GetComponent<ActivatedOnClip>().videoId == toplay.combineId)
-                {
-                    g.SetActive(false);
-                }
-            }
-            
-            #else
-            //cycles through all game objects
-            foreach (GameObject A in AllObj)
-            {
-                //Activates any objects found in activate list
-                foreach (GameObject B in toplay.ToActivate)
-                {
-                    if (A.name == B.name)
+                    foreach (GameObject n in JustEnabled)
                     {
-                        if (A.GetComponent<TriggerList>() == null)
+                        if (n != g)
                         {
-                            A.GetComponentInChildren<MeshRenderer>().enabled = true;
-                            A.GetComponentInChildren<Collider>().enabled = true;
-                        }
-                        else if (A.GetComponent<TriggerList>() != null)
-                        {
-                            A.GetComponent<Collider>().enabled = true;
+                            g.SetActive(false);
                         }
                     }
                 }
-
-                //Disables any in the DIsable list
-                foreach (GameObject B in toplay.ToDisable)
-                {
-                    if (A.name == B.name)
-                    {
-                        if (A.GetComponent<TriggerList>() == null)
-                        {
-                            A.GetComponentInChildren<MeshRenderer>().enabled = false;
-                            A.GetComponentInChildren<Collider>().enabled = false;
-
-                        }
-                        else if (A.GetComponent<TriggerList>() != null)
-                        {
-                            GlobleEvents.OnTriggerExit_Func();
-                            A.GetComponent<Collider>().enabled = false;
-
-                        }
-
-                    }
-                }
             }
-            #endif
+
+        }
+
+        JustEnabled.Clear();
+ 
             
             // Sets watched to true to avoid retriggers
             toplay.beenPlayed = true;
-        }
     }
 }
