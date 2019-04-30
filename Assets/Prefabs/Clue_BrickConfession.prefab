@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &884237056216868744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7594988548751356795}
+  - component: {fileID: 9123759164596766114}
+  m_Layer: 0
+  m_Name: Clue_BrickConfession
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7594988548751356795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884237056216868744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 79.15201, y: 16.995106, z: -41.837692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9123759164596766114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884237056216868744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d1ec04ce9580b499af2a0bcc80e7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Question: Didn't See
+  ToPlay: {fileID: 32900000, guid: f2006309783609242aa3db3104badbe1, type: 3}
+  beenPlayed: 0
+  ToActivate:
+  - {fileID: 2057028254, guid: ac2362e9eaca5974fb9cf44cc145f30f, type: 3}
+  ToDisable:
+  - {fileID: 2368748470891718255, guid: c5f46bb926bb2439ba2118438f6d5767, type: 3}
+  - {fileID: 1138784043, guid: 9f92d130445716f4f987ca4c0a390b93, type: 3}
+  combineId: 5
