@@ -34,8 +34,10 @@ public class Interaction : MonoBehaviour
                 if (hitForward.transform.CompareTag("Clue"))
                 {
                     Clue InView = hitForward.transform.parent.GetComponentInParent<Clue>();
+                    AudioSource WorgTalk = hitForward.transform.parent.GetComponentInParent<AudioSource>();
                     if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
                     {
+                        WorgTalk.Play();
                         Debug.Log("Attempting Activation");
                         InView.Activate();
                     }

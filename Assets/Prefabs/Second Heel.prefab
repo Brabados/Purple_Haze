@@ -2984,7 +2984,6 @@ GameObject:
   - component: {fileID: 267718986}
   - component: {fileID: 267718987}
   - component: {fileID: 267718988}
-  - component: {fileID: 267718989}
   m_Layer: 0
   m_Name: Second Heel
   m_TagString: Clue
@@ -3084,22 +3083,6 @@ MonoBehaviour:
   Lac: {fileID: 1994383858}
   cube: {fileID: 0}
   cam: {fileID: 0}
---- !u!114 &267718989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267718983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918173d21c00043f0ac9c68c4f62975b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enabler: {fileID: 0}
-  Cluemod: {fileID: 267718983}
-  ParticalToggle: {fileID: 267718988}
-  myAnimator: {fileID: 267718984}
 --- !u!1 &275875362
 GameObject:
   m_ObjectHideFlags: 0

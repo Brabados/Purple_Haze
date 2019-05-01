@@ -34,6 +34,8 @@ public class TutorialActivation : MonoBehaviour
                     if (n.activeSelf == false)
                     {
                         n.SetActive(true);
+                        AudioSource WargTalk = GetComponent<AudioSource>();
+                        WargTalk.Play(); 
                     }
                 }
             }

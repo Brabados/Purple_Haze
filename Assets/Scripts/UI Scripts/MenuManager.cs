@@ -27,6 +27,7 @@ using UnityEngine;
 
     void Start()
         {
+        
         //RECODE: Demo set up will be needed to be recoded for main menu intergration
         InterviewToggle = false;
             PauseToggle = false;
