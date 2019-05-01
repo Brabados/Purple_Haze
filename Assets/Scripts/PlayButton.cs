@@ -11,7 +11,7 @@ public class PlayButton : MonoBehaviour
 
 
 
-
+    public TheEnding TheEnd;
     //RawImage to have video clip played on
     public RawImage _Image;
 
@@ -36,7 +36,10 @@ public class PlayButton : MonoBehaviour
 
     public int counter = 0;
 
-
+    private void Start()
+    {
+        TheEnd = gameObject.GetComponent<TheEnding>();
+    }
     public void PLAY()
     {
         StartCoroutine(playVideo(sequencer[counter]));
@@ -133,10 +136,20 @@ public class PlayButton : MonoBehaviour
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("GameLoop");
+            if (TheEnd != null)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GameLoop");
+            }
         }
 
-        
+        if(TheEnd != null)
+        {
+
+        }
         
     }
 }

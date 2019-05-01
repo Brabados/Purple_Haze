@@ -14,8 +14,8 @@ public class TriggerList : MonoBehaviour {
     // Use this for initialization
     void Start () 
     {
-        GlobleEvents.Toggle += AddGameObj;
-        GlobleEvents.TriggerExit += cleartoggles;
+        //GlobleEvents.Toggle += AddGameObj;
+       // GlobleEvents.TriggerExit += cleartoggles;
 	}
 
     void AddGameObj(GameObject A)

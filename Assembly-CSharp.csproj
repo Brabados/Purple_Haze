@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Shaders\PostProssesing.cs" />
     <Compile Include="Assets\Scripts\SlepCam.cs" />
     <Compile Include="Assets\Scripts\SpriteHolder.cs" />
+    <Compile Include="Assets\Scripts\TheEnding.cs" />
     <Compile Include="Assets\Scripts\TriggerDetect.cs" />
     <Compile Include="Assets\Scripts\TriggerList.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />

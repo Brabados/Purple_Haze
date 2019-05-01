@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93758e71b87ab3241997234b9b54641f, type: 3}
   m_Name: Ending
   m_EditorClassIdentifier: 
-  clipStruct: {fileID: 0}
-  ids: 01000000
+  clipStruct: {fileID: 9123759164596766114, guid: 0a252edc6411ff745b5ef7f912699b4f,
+    type: 3}
+  ids: 0a0000000b000000

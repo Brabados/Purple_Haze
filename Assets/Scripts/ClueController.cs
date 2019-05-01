@@ -14,10 +14,13 @@ public class ClueController : MonoBehaviour {
 
     private void Awake()
     {
+        
         // Adding animation direction functions to events
         TimeControler.OnTimePlay += Play;
         TimeControler.OnTimeRewind += Rewind;
         TimeControler.OnTimeStop += Stop;
+        gameObject.GetComponent<PlayButton>();
+        
     }
 
     private void Start()
