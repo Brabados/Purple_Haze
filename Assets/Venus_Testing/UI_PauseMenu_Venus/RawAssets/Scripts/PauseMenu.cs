@@ -75,7 +75,8 @@ public class PauseMenu : MonoBehaviour
     // **PLACEHOLDER FUNCTIONS** Their functionalities are not yet done due to missing data
     public void Save()
     {
-        print("Game Saved!");
+       SceneManager.LoadScene("MainMenu");
+  
     }
 
     public void LoadTitle()

@@ -15,6 +15,8 @@ public class PlayButton : MonoBehaviour
     //RawImage to have video clip played on
     public RawImage _Image;
 
+    public RawImage _Spacer;
+
     //Clip to play
     public VideoClip ToPlay;
 
@@ -30,16 +32,19 @@ public class PlayButton : MonoBehaviour
     //Event to call on completion of a clip
     public event Action EndPlay;
 
-    public ClipStruct toplay;
+    public List<ClipStruct> sequencer;
+
+    public int counter = 0;
 
 
     public void PLAY()
     {
-        StartCoroutine(playVideo());
+        StartCoroutine(playVideo(sequencer[counter]));
+        counter++;
     }
         
 
-    public IEnumerator playVideo()
+    public IEnumerator playVideo(ClipStruct toplay)
     {
         //Places RawImage to enabled so clip can be watched
         _Image.enabled = true;
@@ -116,16 +121,22 @@ public class PlayButton : MonoBehaviour
 
         //Stops playback at end of clip
         _Player.Stop();
-        if (EndPlay != null)
-        {
-            // Add scroll view re-enable and raw image disable
-            //          Debug.Log("Running end event");
-            EndPlay();
-        }
+
+        _Image.texture = _Spacer.texture;
         //if the clip hasn't been watched before 
 
         // Sets watched to true to avoid retriggers
         toplay.beenPlayed = true;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameLoop");
+        if (counter < sequencer.Count)
+        {
+            PLAY();
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameLoop");
+        }
+
+        
+        
     }
 }
