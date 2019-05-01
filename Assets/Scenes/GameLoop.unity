@@ -1938,10 +1938,32 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9756799
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 267718987, guid: 06a69fac2a5f77343a85c7086238f2c9, type: 3}
-    - {fileID: 267718988, guid: 06a69fac2a5f77343a85c7086238f2c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a69fac2a5f77343a85c7086238f2c9, type: 3}
+--- !u!114 &222838498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 267718988, guid: 06a69fac2a5f77343a85c7086238f2c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 222838497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405320326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2437102f4bdb620428265adb05886fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &222838499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 267718987, guid: 06a69fac2a5f77343a85c7086238f2c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 222838497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405320326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ccafc151340e240949860cd41edde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &270117840 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 2612704421448078891, guid: f84acbe26143a2947a622468ee1f7de4,
@@ -3190,46 +3212,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 222838497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1405320331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405320326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ccafc151340e240949860cd41edde6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClipsToSpwan: []
-  NeedsTrigger: 0
-  TheTrigger: {fileID: 0}
-  BeenActive: 0
---- !u!114 &1405320332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405320326}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2437102f4bdb620428265adb05886fa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 17067882}
-  ParticalsPrefab: {fileID: 1644875741051078, guid: 28c7c480520eed1499c6e2dd7d26b824,
-    type: 3}
-  MyPartical_Object: {fileID: 0}
-  MyParticalSystem: {fileID: 0}
-  MySkinMesh: {fileID: 0}
-  MyMesh: {fileID: 0}
-  rectTrans: {fileID: 0}
-  selected: 0
-  Lac: {fileID: 338508186}
-  cube: {fileID: 0}
-  cam: {fileID: 1174134279}
 --- !u!114 &1405320333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3256,9 +3238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918173d21c00043f0ac9c68c4f62975b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabler: {fileID: 1405320331}
+  enabler: {fileID: 222838499}
   Cluemod: {fileID: 1405320326}
-  ParticalToggle: {fileID: 1405320332}
+  ParticalToggle: {fileID: 222838498}
   myAnimator: {fileID: 1405320329}
 --- !u!1 &1409330659 stripped
 GameObject:
